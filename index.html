@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Fun Plant-Based Quiz</title>
+  <style>
+    body {
+      font-family: "Comic Sans MS", cursive, sans-serif;
+      background-color: #fffdf5;
+      padding: 20px;
+      color: #333;
+    }
+    h2 {
+      color: #4CAF50;
+      text-align: center;
+    }
+    .quiz-container {
+      max-width: 750px;
+      margin: auto;
+      background: #fefefe;
+      padding: 20px;
+      border-radius: 16px;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.1);
+      border: 3px dashed #c0e4c1;
+    }
+    .question {
+      margin-bottom: 25px;
+      background-color: #f9fff9;
+      border-left: 6px solid #9ddba1;
+      padding: 10px 15px;
+      border-radius: 10px;
+    }
+    .question p {
+      font-size: 18px;
+      font-weight: bold;
+    }
+    .answers label {
+      display: block;
+      margin: 6px 0;
+      cursor: pointer;
+      font-size: 16px;
+    }
+    button {
+      background-color: #4CAF50;
+      color: white;
+      padding: 12px 24px;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      font-size: 18px;
+      display: block;
+      margin: 0 auto;
+    }
+    button:hover {
+      background-color: #3a9e3d;
+    }
+    #result {
+      font-size: 20px;
+      margin-top: 20px;
+      font-weight: bold;
+      color: #4CAF50;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="quiz-container">
+    <h2>🌱 Fun Quiz: What Do You Know About Plant-Based Eating?</h2>
+    <form id="quizForm">
+
+      <div class="question">
+        <p>1️⃣ What does a 🥦 vegan diet exclude?</p>
+        <div class="answers">
+          <label><input type="radio" name="q1" value="0" required> 🍗 Only meat</label>
+          <label><input type="radio" name="q1" value="0"> 🧀 Meat and dairy</label>
+          <label><input type="radio" name="q1" value="1"> 🥛🥚 All animal products</label>
+        </div>
+      </div>
+
+      <div class="question">
+        <p>2️⃣ Which of these foods gives you plant-based protein?</p>
+        <div class="answers">
+          <label><input type="radio" name="q2" value="0" required> 🍗 Chicken</label>
+          <label><input type="radio" name="q2" value="1"> 🥣 Lentils</label>
+          <label><input type="radio" name="q2" value="0"> 🧈 Butter</label>
+        </div>
+      </div>
+
+      <div class="question">
+        <p>3️⃣ What vitamin do vegans usually take as a supplement?</p>
+        <div class="answers">
+          <label><input type="radio" name="q3" value="0" required> 🍊 Vitamin C</label>
+          <label><input type="radio" name="q3" value="1"> 💊 Vitamin B12</label>
+          <label><input type="radio" name="q3" value="0"> 🥕 Vitamin A</label>
+        </div>
+      </div>
+
+      <div class="question">
+        <p>4️⃣ Why is iron 🧲 important for children?</p>
+        <div class="answers">
+          <label><input type="radio" name="q4" value="0" required> 😴 It helps you sleep</label>
+          <label><input type="radio" name="q4" value="1"> 💨 It carries oxygen in the blood</label>
+          <label><input type="radio" name="q4" value="0"> 🦷 It keeps teeth strong</label>
+        </div>
+      </div>
+
+      <div class="question">
+        <p>5️⃣ What food helps your body absorb more iron?</p>
+        <div class="answers">
+          <label><input type="radio" name="q5" value="0" required> 🧀 Cheese</label>
+          <label><input type="radio" name="q5" value="1"> 🍊 Oranges</label>
+          <label><input type="radio" name="q5" value="0"> 🍚 Rice</label>
+        </div>
+      </div>
+
+      <div class="question">
+        <p>6️⃣ True or False: A well-planned vegan diet can be healthy for kids 🧒👧</p>
+        <div class="answers">
+          <label><input type="radio" name="q6" value="1" required> ✅ True</label>
+          <label><input type="radio" name="q6" value="0"> ❌ False</label>
+        </div>
+      </div>
+
+      <button type="submit">✨ Check My Answers!</button>
+    </form>
+
+    <div id="result"></div>
+  </div>
+
+  <script>
+    const form = document.getElementById('quizForm');
+    const result = document.getElementById('result');
+
+    form.addEventListener('submit', function(e) {
+      e.preventDefault();
+      const formData = new FormData(form);
+      let score = 0;
+      for (let [key, value] of formData.entries()) {
+        score += parseInt(value);
+      }
+
+      result.textContent = `🎉 You scored ${score} out of 6! Great job!`;
+    });
+  </script>
+
+</body>
+</html>
